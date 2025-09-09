@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest # this job will run on which OS  . Basically we are setting up the RUNNER here using comman RUNS-ON
 
     steps:     #steps on how this job will be executed
-      - name: code checkout  3name of the step
+      - name: code checkout  #name of the step
         uses : actions/checkout@v3    # this is for checking out the code on our github repo . it is a GITHUB Action used in 
         # Github Actions wprkflows to checkout a repo so that the workflows can access rthe code. see 41:14 secs
         # it checks out the repo at a specific commit  making it avaiable for use in the RUNNER environment
