@@ -1,0 +1,46 @@
+# Session 21 : What is CI : Continuous Integration 
+# Basically we have a centralized  repo for the entire ML program. 
+# Now when the developer wants to update/build some new features into the ML program , he will clone the entire repo on his desktop, do some changes and merge it back to the repo.
+# Now as soon as he merges it back to the repo. Now as soon as he merges the updated code to the repo, CI is triggers and a new server is created termed as RUNNER. 
+# The entire code existing on the repo along with the new updated code is copied on the RUNNER.
+# The runner has an OS, libraries needed all is setup and kept ready.
+# The runner will test the code, and see if its ready to be deployed . once its ready it will merge the code on the repo which will be latest code for the ML program to run
+
+# Github actions runs CI.
+
+# LINTING : it is process of running a program that analyses the code for potential errors, bugs, stylistic errors and other issues that may affect the quality of the code. 
+
+# Flake8 : library for checking linting errors, , just have to do : flake8 app.py
+
+
+name: CI  # name of the CI pipeline
+
+on: push    # the workflow will be triggered whenever there is a push comman
+
+jobs:
+  linting:    # name of this job. you can have multiple jobs with different names
+    runs-on: ubuntu-latest # this job will run on which OS  . Basically we are setting up the RUNNER here using comman RUNS-ON
+
+    steps:     #steps on how this job will be executed
+      - name: code checkout  3name of the step
+        uses : actions/checkout@v3    # this is for checking out the code on our github repo . it is a GITHUB Action used in 
+        # Github Actions wprkflows to checkout a repo so that the workflows can access rthe code. see 41:14 secs
+        # it checks out the repo at a specific commit  making it avaiable for use in the RUNNER environment
+
+
+
+      - name: setup python # next step
+        uses : actions/setup-python@v2
+        python-version : '3.9'
+
+      - name: install flake8  # used for checking linting errors # next step name 
+        run:
+          python -m pip install --upgrade pip
+          pip install flake8
+
+      - name: run flake8
+        run:
+          flake8 app.py
+
+
+

@@ -1,0 +1,23 @@
+We creating a simple CI workflow/pipeline which will check for linting and if the code is succesfful then only the code is deployed 
+on the repo. 
+
+create a python file. The code in this file is created to check a CI pipeline where the pipeline is executed successfully 
+if there is no Linting errors. 
+
+CI is done through gitbhub actions. 
+
+create a Repo where our file will be tracked on github. 
+
+to create a CI.yaml file
+a. create a folder .github
+b. another folder inside of that called workflows
+c. create a ci.yaml file
+
+what does CI file contain ?
+a. the name of the CI
+b. The OS
+c. the jobs 
+    i. the steps involved for runnings the jobs. You can have multiple jobs in one CI
+
+See ci.yaml file for how the code description in detail now/ 
+
