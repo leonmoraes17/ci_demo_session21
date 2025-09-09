@@ -31,7 +31,8 @@ jobs:
 
       - name: setup python # next step
         uses : actions/setup-python@v2
-        python-version : '3.9'
+        with:
+          python-version : '3.9'
 
       - name: install flake8  # used for checking linting errors # next step name 
         run:
